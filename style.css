@@ -1,0 +1,64 @@
+#entry{
+	width: 400px;
+	margin-top: 30px;
+	margin-left: 30px;
+	display: inline-block;
+}
+
+div.panel-heading{
+	font-weight: bold;
+	font-size: 1.6em;
+}
+
+div.input-group{
+	margin-bottom: 10px;
+}
+
+div.form-group label{
+	font-weight: normal;
+	margin-left:12px;
+}
+
+#div_descrip{
+	margin-top: 20px;
+}
+
+form button{
+	margin-left: 250px;
+}
+
+#div_descrip i{
+	font-size: 1em;
+	color: silver;
+}
+
+#new_cards{
+	display: inline-block;
+	width: 500px;
+	margin-left: 40px;
+	vertical-align: top;
+}
+
+.flip{
+	margin: 30px auto;
+	vertical-align: top;
+	width: 400px;
+	height: 300px;
+}
+
+.front, .back{
+	word-wrap: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 20px;
+}
+
+.front{
+	text-align: center;
+}
+
+.front h2{
+	font-weight: bold;
+	font-size: 2.4em;
+	margin-bottom: 50px;
+}

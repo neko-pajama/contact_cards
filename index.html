@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Contact Cards" />
+		<title>Contact Cards</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+			integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+			crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+			integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+			crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+			crossorigin="anonymous"></script>
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css' />
+		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src='jquery.flip.min.js'></script>
+		<script type="text/javascript">
+			function flipper(){
+				$('#flip').flip({
+					trigger: 'click'
+				});
+			};
+			$(document).ready(function(){
+				var script = document.createElement( 'script' );
+				script.type = 'text/javascript';
+				script.src ='https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js';
+				console.log(script);
+				$('form').submit(function(){
+					var firstName = $('#first_name').val();
+					var lastName = $('#last_name').val();
+					var description = $('#description').val();
+					console.log(firstName+' '+lastName+' '+description);
+					$('#new_cards').append('<div class="flip panel panel-info"><div class="front"><h2>'+
+													firstName+' '+lastName+
+												'</h2><p>'+'Click here for a description'+'</p></div>'+
+												'<div class="back"><p>'+
+													description +
+												'</p></div>'+
+											'</div>');
+					$('.flip').append(script).flip({
+						trigger: 'click'
+					});
+					$("input[type=text], textarea[type=text]").val('');
+					return false;
+				});
+				$(document).on('click', '.flip', function(){
+					$(this).flip({
+						trigger: 'click'
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Contact Cards!</a>
+		    </div>
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+		        <li><a href="#">Link</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">One more separated link</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      <form class="navbar-form navbar-left">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search">
+		        </div>
+		        <button type="submit" class="btn btn-default">Submit</button>
+		      </form>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">Link</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="panel panel-info" id='entry'>
+			<div class="panel-heading">Card Entry</div>
+		    <div class="panel-body">
+				<form>
+					<div class="input-group">
+						<span class="input-group-addon" >First Name:</span>
+						<input id="first_name" type="text" class="form-control" placeholder="First Name" aria-describedby="first_name">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon" >Last Name:</span>
+						<input id="last_name" type="text" class="form-control" placeholder="Last Name" aria-describedby="last_name">
+					</div>
+					<div id='div_descrip' class="form-group">
+						<label>Description: <i>(Tell Us About Yourself)</i></label>
+						<textarea class="form-control" cols="50" rows="5" id="description" type='text' wrap='hard'></textarea>
+					</div>
+					<button class='btn btn-info' type='submit'>Add User</button>
+				</form>
+		    </div>
+		</div>
+		<div id='new_cards'>
+		</div>
+	</body>
+</html>
